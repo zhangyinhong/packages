@@ -55,18 +55,20 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
 
-    dependencies {
-        val exoplayerVersion = "1.9.2"
-        implementation("androidx.media3:media3-exoplayer:${exoplayerVersion}")
-        implementation("androidx.media3:media3-exoplayer-hls:${exoplayerVersion}")
-        implementation("androidx.media3:media3-exoplayer-dash:${exoplayerVersion}")
-        implementation("androidx.media3:media3-exoplayer-rtsp:${exoplayerVersion}")
-        implementation("androidx.media3:media3-exoplayer-smoothstreaming:${exoplayerVersion}")
+   dependencies {
+        // 使用 ExoPlayer 2.18.7 替代 Media3
+        val exoplayerVersion = "2.18.7"
+        implementation("com.google.android.exoplayer:exoplayer:${exoplayerVersion}")
+        implementation("com.google.android.exoplayer:exoplayer-hls:${exoplayerVersion}")
+        implementation("com.google.android.exoplayer:exoplayer-dash:${exoplayerVersion}")
+        implementation("com.google.android.exoplayer:exoplayer-rtsp:${exoplayerVersion}")
+        implementation("com.google.android.exoplayer:exoplayer-smoothstreaming:${exoplayerVersion}")
+        
         testImplementation("junit:junit:4.13.2")
         testImplementation("androidx.test:core:1.7.0")
         testImplementation("org.mockito:mockito-core:5.23.0")
         testImplementation("org.robolectric:robolectric:4.16")
-        testImplementation("androidx.media3:media3-test-utils:${exoplayerVersion}")
+        testImplementation("com.google.android.exoplayer:exoplayer-robolectric:${exoplayerVersion}")
     }
 
     testOptions {
